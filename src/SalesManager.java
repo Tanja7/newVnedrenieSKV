@@ -1,13 +1,13 @@
 public class SalesManager {
-    protected int[] sales;
+    protected long[] sales;
 
-    public SalesManager(int[] sales) {
+    public SalesManager(long[] sales) {
         this.sales = sales;
     }
 
-    public int max() {
-        int max = -1;
-        for (int sale : sales) {
+    public long max() {
+        long max = -1;
+        for (long sale : sales) {
             if (sale > max) {
                 max = sale;
             }
@@ -15,9 +15,9 @@ public class SalesManager {
         return max;
     }
 
-    public int min() {
-        int min = max();
-        for (int sale : sales) {
+    public long min() {
+        long min = max();
+        for (long sale : sales) {
             if (sale < min) {
                 min = sale;
             }
@@ -25,19 +25,15 @@ public class SalesManager {
         return min;
     }
     // расчёт обрезанного среднего
-    public int trimmedAverage (){
-        int sumSales = 0;
-        for (int sale : sales) {
+    public long trimmedAverage (){
+        long sumSales = 0;
+        for (long sale : sales) {
             sumSales += sale;
         }
         sumSales = sumSales - max() - min();
-        int trimmedAverage = sumSales / (sales.length - 2);
+        long trimmedAverage = sumSales / (sales.length - 2);
         return trimmedAverage;
 
     }
 
 }
-// Добавьте расчёт обрезанного среднего - это среднее количество продаж среди всех продаж,
-// за исключением самой максимальной и самой минимальной. Это иногда используется в статистике
-// для того, чтобы снизить влияение единичных скачков. При этом считать вы можете всё в целых числах.
-
